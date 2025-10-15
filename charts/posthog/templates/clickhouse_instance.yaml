@@ -60,7 +60,7 @@ spec:
                <sasl_mechanisms from_env="KAFKA_MECHANISM"></sasl_mechanisms>
            </kafka>
         </clickhouse>
-    {{- end }}
+      {{- end }}
     zookeeper:
       nodes:
       {{- if .Values.clickhouse.externalZookeeper }}
@@ -125,7 +125,7 @@ spec:
               {{- if .Values.clickhouse.secretRef }}
               envFrom:
                 - secretRef:
-                    name: 
+                    name: {{ .Values.clickhouse.secretRef }}
               {{- end }}
               ports:
                 - name: http
