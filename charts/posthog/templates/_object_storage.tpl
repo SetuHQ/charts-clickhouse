@@ -66,15 +66,5 @@ https://{{- .Values.externalObjectStorage.host -}}:{{- .Values.externalObjectSto
   value: {{ .Values.externalObjectStorage.bucket }}
 - name: OBJECT_STORAGE_REGION
   value: {{ .Values.externalObjectStorage.region }}
-- name: OBJECT_STORAGE_ACCESS_KEY_ID
-  valueFrom:
-    secretKeyRef:
-      name: {{ .Values.externalObjectStorage.existingSecret }}
-      key: 'root-user'
-- name: OBJECT_STORAGE_SECRET_ACCESS_KEY
-  valueFrom:
-    secretKeyRef:
-      name: {{ .Values.externalObjectStorage.existingSecret }}
-      key: 'root-password'
 {{- end }}
 {{- end }}
