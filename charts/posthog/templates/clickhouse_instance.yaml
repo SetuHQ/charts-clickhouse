@@ -51,13 +51,13 @@ spec:
           string elements_chain = 8;
         }
       {{- if .Values.clickhouse.secretRef }}
-      conf.d/kafka_credentials.xml: |
+      config.d/kafka.xml: |
         <yandex>
            <kafka>
                <sasl_username from_env="KAFKA_USERNAME"></sasl_username>
                <sasl_password from_env="KAFKA_PASSWORD"></sasl_password>
                <security_protocol from_env="KAFKA_PROTOCOL"></security_protocol>
-               <sasl_mechanisms from_env="KAFKA_MECHANISM"></sasl_mechanisms>
+               <sasl_mechanism from_env="KAFKA_MECHANISM"></sasl_mechanism>
            </kafka>
         </yandex>
       {{- end }}
