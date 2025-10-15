@@ -52,14 +52,14 @@ spec:
         }
       {{- if .Values.clickhouse.secretRef }}
       config.d/kafka.xml: |
-        <yandex>
+        <clickhouse>
            <kafka>
                <sasl_username from_env="KAFKA_USERNAME"></sasl_username>
                <sasl_password from_env="KAFKA_PASSWORD"></sasl_password>
                <security_protocol from_env="KAFKA_PROTOCOL"></security_protocol>
                <sasl_mechanism from_env="KAFKA_MECHANISM"></sasl_mechanism>
            </kafka>
-        </yandex>
+        </clickhouse>
       {{- end }}
     zookeeper:
       nodes:
